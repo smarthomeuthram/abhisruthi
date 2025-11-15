@@ -1447,11 +1447,43 @@ body {
 
 @media (max-width: 768px) {
     .nav-menu {
-        display: none;
+        position: fixed;
+        left: -100%;
+        top: 70px;
+        flex-direction: column;
+        background-color: var(--color-surface);
+        width: 100%;
+        text-align: center;
+        transition: left 0.3s ease;
+        box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+        padding: 20px 0;
+        gap: 0;
+        z-index: 999;
+        margin: 0;
+    }
+
+    .nav-menu.active {
+        left: 0;
+    }
+
+    .nav-menu li {
+        margin: 15px 0;
     }
 
     .hamburger {
         display: flex;
+    }
+
+    .hamburger.active span:nth-child(1) {
+        transform: rotate(-45deg) translate(-5px, 6px);
+    }
+
+    .hamburger.active span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger.active span:nth-child(3) {
+        transform: rotate(45deg) translate(-5px, -6px);
     }
 
     .hero-title {
@@ -1558,5 +1590,117 @@ body {
 
     .invitation-message p {
         font-size: var(--font-size-base);
+    }
+}
+
+/* ============================================
+   Countdown Timer Section
+============================================ */
+.countdown-section {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-teal-700) 100%);
+    padding: var(--space-24) 0;
+    position: sticky;
+    top: 70px;
+    z-index: 998;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.countdown-container {
+    max-width: var(--container-lg);
+    margin: 0 auto;
+    padding: 0 var(--space-16);
+}
+
+.countdown-display {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--space-32);
+    flex-wrap: wrap;
+}
+
+.countdown-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 80px;
+}
+
+.countdown-number {
+    font-size: var(--font-size-4xl);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-white);
+    line-height: 1;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.countdown-label {
+    font-size: var(--font-size-sm);
+    color: rgba(255, 255, 255, 0.9);
+    margin-top: var(--space-8);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: var(--font-weight-medium);
+}
+
+.married-message {
+    text-align: center;
+    padding: var(--space-24);
+}
+
+.married-message h2 {
+    font-size: var(--font-size-3xl);
+    color: var(--color-white);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    animation: celebrateAnimation 1s ease-in-out infinite alternate;
+}
+
+@keyframes celebrateAnimation {
+    from {
+        transform: scale(1);
+    }
+    to {
+        transform: scale(1.05);
+    }
+}
+
+@media (max-width: 768px) {
+    .countdown-section {
+        top: 60px;
+        padding: var(--space-16) 0;
+    }
+
+    .countdown-display {
+        gap: var(--space-16);
+    }
+
+    .countdown-item {
+        min-width: 60px;
+    }
+
+    .countdown-number {
+        font-size: var(--font-size-2xl);
+    }
+
+    .countdown-label {
+        font-size: var(--font-size-xs);
+    }
+
+    .married-message h2 {
+        font-size: var(--font-size-xl);
+    }
+}
+
+@media (max-width: 480px) {
+    .countdown-display {
+        gap: var(--space-12);
+    }
+
+    .countdown-item {
+        min-width: 50px;
+    }
+
+    .countdown-number {
+        font-size: var(--font-size-xl);
     }
 }
