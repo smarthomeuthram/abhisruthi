@@ -378,14 +378,13 @@ code {
   padding: var(--space-1) var(--space-4);
 }
 .ganesh-icon {
-  text-align: center;
-  margin-top: 32px;
+  text-align: center; 
   margin-bottom: 16px;
 }
 
 .ganesh-icon svg,
 .ganesh-icon .mono-ganesh {
-  width: 90px;
+  width: 80px;
   height: auto;
   /* Use white or matching accent color, and reduce opacity for watermark effect */
   filter: brightness(0) invert(1);
